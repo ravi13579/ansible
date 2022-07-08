@@ -1,0 +1,9 @@
+---
+- name: create file-playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: create-file
+    file:
+      path: /home/ansadmin/file1
+      state: touch
