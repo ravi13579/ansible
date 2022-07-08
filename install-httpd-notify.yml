@@ -1,0 +1,15 @@
+---
+- name: install app with notify and handlers
+  hosts: webservers
+  become: true
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: installed
+      notify: start service httpd
+  handlers:
+    - name: start service httpd
+      service:
+        name: httpd
+        state: started
